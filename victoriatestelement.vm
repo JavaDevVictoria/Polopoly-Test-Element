@@ -1,0 +1,10 @@
+#set($urlField = $content.urlField.value)
+#set($headertext = $content.headerText.value)
+#set($headertextlink = $content.headerTextLink.content.contentId)
+
+#if($headertext)
+	<h1>#if($headertextlink)<a href="$link.buildURL($headertextlink)">$headertext</a>#end</h1>		
+#end
+
+<p>#if($urlField)<a href="$urlField">Url test</a>#end</p>
+<p>$paragraphInformation</p>
