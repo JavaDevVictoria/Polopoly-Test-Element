@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <input-template name="archant.VictoriaTestElement" label="Victoria Test Element">
+    <policy>uk.co.archant.layout.element.ElementPolicy</policy>  
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <type>LayoutElement</type>
+    <editor contextName="orchid_TOCENTRY">uk.co.archant.widget.OContentListEntryBasePolicyWidget</editor>
+    <viewer contextName="orchid_TOCENTRY">uk.co.archant.widget.OContentListEntryBasePolicyWidget</viewer>
+    <field name="title" input-template="p.ContentName" label="Title" required="true">
+      <param name="default">Victoria Test Element</param>
+	</field> 
+    <field name="urlField" input-template="p.TextInput" label="URL">
+	  <param name="maxlength">2083</param>
+    </field>  
+    <field name="headerText" input-template="p.TextInput" label="Title text"/>
+    <field name="headerTextLink" input-template="p.ContentSingleSelect" label="Header Text Link" />
+    <field name="paragraphInformation" input-template="p.TextArea" label="Paragraph information">
+      <param name="rows">3</param>
+	  <param name="cols">50</param>
+	  <param name="style">font-size: 11px; font-weight: normal; width: 100%;</param>
+	  <param name="populateIndex">true</param>
+	  <param name="indexField">true</param>
+	  <param name="storeField">true</param>
+    </field>
+	<output-templates mode="www">
+      <id>archant.VictoriaTestElement.ot</id>
+    </output-templates>
+  </input-template>
+  <output-template name="archant.VictoriaTestElement.ot" input-template="p.siteengine.ElementOutputTemplate">
+    <content-xml>
+      <!-- Fragment cache key -->
+	  <component group="output/modelKeyMode" name="selected">custom</component> 
+      <component group="output/controller/selected/renderControllerClass" name="value">uk.co.archant.layout.element.datafeed.VictoriaTestElementController</component>      
+      <contentref group="output/renderer" name="selected">
+        <contentid>
+          <externalid>p.siteengine.VelocityFileRenderer</externalid>
+        </contentid>
+      </contentref>
+      <component group="output/renderer/selected/defaultVelocityViewFileName" name="value">/WEB-INF/velocity/www/victoriatestelement.vm</component>
+      <contentref group="output/controller" name="selected">
+        <contentid>
+          <externalid>p.siteengine.JavaClassRenderController</externalid>
+        </contentid>
+      </contentref>
+    </content-xml>
+  </output-template>
+</template-definition>
